@@ -186,8 +186,16 @@ parse_table_keys(DA.db_name)
 
 # MAGIC %sql
 # MAGIC -- TODO
-# MAGIC <FILL_IN> ${da.db_name}.challenge
-# MAGIC <FILL_IN>
+# MAGIC DROP TABLE ${da.db_name}.challenge;
+# MAGIC CREATE OR REPLACE TABLE ${da.db_name}.challenge
+# MAGIC (id INT, name STRING, age INT, address STRING)
+# MAGIC COMMENT "Contains PII"
+# MAGIC TBLPROPERTIES ('contains_pii' = False) 
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC describe extended ${da.db_name}.challenge
 
 # COMMAND ----------
 
